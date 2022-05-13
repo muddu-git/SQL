@@ -40,6 +40,17 @@
 -- p1 = 2 and p2 = 3, has an area equal to |4-2| * |7-10| = 6.
 -- p1 = 1 and p2 = 3 It's not possible because the rectangle has an area equal to 0.
 
+DDL Script:
+create table  points (id int,x_value int,y_value int)
+insert into points (id ,x_value ,y_value )
+values(1,2,8)
+
+insert into points (id ,x_value ,y_value )
+values(2,4,7)
+
+insert into points (id ,x_value ,y_value )
+values(3,2,10)
+
 
 Query:
 select t1.id as p1,t2.id as p2,(abs(t1.x_value-t2.x_value)*abs(t1.y_value-t2.y_value)) as area
