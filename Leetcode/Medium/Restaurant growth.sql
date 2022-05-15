@@ -120,3 +120,17 @@ order by visited_on offset 6 rows
 --we cannot use 'range between' function for 6 preceding and current row in mssql...it is applicable only for unbounded preceding and current row
 --There are duplicate dates '2019-01-10' in table.Hence we applied group by to make it unique,then applied rolling average on the top of it
 
+Without Window Function:
+
+select cust1.visited_on,sum(cust2.amount) as amount,round(avg(cast(cust2.amount as float)),2) as average_amount
+from (select visited_on,sum(amount) as amount
+from customer
+group by visited_on) cust1 cross join (select visited_on,sum(amount) as amount
+from customer
+group by visited_on) cust2
+where cust2.visited_on between dateadd(dd,-6,cust1.visited_on) and cust1.visited_on
+group by cust1.visited_on
+order by visited_on offset 6 rows
+
+
+
