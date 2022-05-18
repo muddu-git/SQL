@@ -129,6 +129,8 @@ ORDER BY
 
 -- join with team_id with host_Team or guest_Team
 -- in case statement, 'else 0' is for chicago not to be null
+--host_goals>guest_goals is populated 3 ,host_goals=guest_goals is populated 1
+--remaining things are populate it as 0...it covers null recors plus defeat condition for specific team_id
 team_id	team_name	match_id	host_team	guest_team	host_goals	guest_goals
 10	Leetcode FC	1	10	20	3	0
 10	Leetcode FC	2	30	10	2	2
