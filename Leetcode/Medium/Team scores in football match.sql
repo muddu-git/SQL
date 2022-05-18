@@ -127,4 +127,17 @@ ORDER BY
     num_points DESC,
     team_id ASC;
 
-
+-- join with team_id with host_Team or guest_Team
+-- in case statement, 'else 0' is for chicago not to be null
+team_id	team_name	match_id	host_team	guest_team	host_goals	guest_goals
+10	Leetcode FC	1	10	20	3	0
+10	Leetcode FC	2	30	10	2	2
+10	Leetcode FC	3	10	50	5	1
+20	NewYork FC	1	10	20	3	0
+20	NewYork FC	4	20	30	1	0
+30	Atlanta FC	2	30	10	2	2
+30	Atlanta FC	4	20	30	1	0
+30	Atlanta FC	5	50	30	1	0
+40	Chicago FC	NULL	NULL	NULL	NULL	NULL
+50	Toronto FC	3	10	50	5	1
+50	Toronto FC	5	50	30	1	0
