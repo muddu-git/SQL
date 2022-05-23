@@ -86,3 +86,12 @@ from
 (select CandidateId,count(*) cnt  from vote group by CandidateId ) 
 qry) qry1 where rnk=1)
 
+Query(using with clause):
+
+with qry 
+as
+(select CandidateId,count(*) cnt  from vote group by CandidateId),
+qry1 as
+(select CandidateId,rank() over(order by cnt desc) as rnk from qry)
+
+select Name from Candidate where id in (select CandidateId from qry1 where rnk=1)
