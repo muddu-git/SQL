@@ -50,6 +50,27 @@
 
 -- If there is only one node on the tree, you only need to output its root attributes.
 
+Table Creation Script:
+
+create table tree(id int, p_id int)
+
+insert into tree(id,p_id)
+values(1,null)
+
+insert into tree(id,p_id)
+values(2,1)
+
+insert into tree(id,p_id)
+values(3,1)
+
+insert into tree(id,p_id)
+values(4,2)
+
+insert into tree(id,p_id)
+values(5,2)
+
+
+
 
 Solution:
 select id,
@@ -58,3 +79,4 @@ case when p_id is null then 'Root'
 			   else 'Leaf' end as Type
 from tree
 order by id
+
