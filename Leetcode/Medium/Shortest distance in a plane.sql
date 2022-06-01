@@ -75,4 +75,9 @@ and condition output:
 0	0	-1	-2
 
 
+--we need to select should not select the rows where point in table 1 not equal to point in table 2
+t1.x- t1.y t2.x t2.y
+-1	   -1	   -1	-1
+
+
 
